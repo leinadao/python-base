@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "python-base"
+version = "0.1.0"
+description = "A base python setup."
+authors = ["Name <email>"]
+
+[tool.poetry.dependencies]
+python = "^3.8.9"
+
+[tool.poetry.group.dev.dependencies]
+# Formatting:
+black = "^23.0"
+
+# Linting:
+djlint = "^1.19.14"
+darglint = "^1.8.1"
+flake8 = "^6.0.0"
+flake8-docstrings = "^1.6.0"
+flake8-isort = "^6.0.0"
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^6.0.0"
+sphinx-rtd-theme = "^1.0.0"
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

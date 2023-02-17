@@ -1,0 +1,58 @@
+{
+  "autoDocstring.docstringFormat": "google",
+  "autoDocstring.includeExtendedSummary": true,
+  "json.format.enable": false,
+  "python.formatting.provider": "black",
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.ignorePatterns": [
+    "**/site-packages/**/*.py",
+    ".vscode/*.py"
+  ],
+  "python.linting.lintOnSave": true,
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/__pycache__": true,
+  },
+  "[html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[django-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[hbs]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[mustache]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[jinja]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[jinja-html]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[nj]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[njk]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[nunjucks]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "[twig]": {
+    "editor.defaultFormatter": "monosans.djlint"
+  },
+  "djlint.formatCss": true,
+  "djlint.formatJs": true
+}
