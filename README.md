@@ -4,7 +4,7 @@
 # Python Base
 A base python setup
 
-## Set up in a repo:
+## Set up in another repo
 ```
   git remote add python-base git@github.com:leinadao/python-base.git
   git fetch python-base
@@ -20,27 +20,64 @@ Update latest base changes in a repo:
 
 =======
 
-## Setup:
+## Setup
+### Install Poetry (if not already on your system)
+It can be installed system-wide using:
 ```
 brew install poetry
 ```
-Storing the virtual environment in the source directory allows VSCode to find and activate it, which means that e.g. flake8 plugins are found and run.
 
-At the moment poetry venv location can't be set in pyproject.toml, only in poetry.toml which should be local and not source-controlled.
+### Configure Poetry
+Poetry creates a virtual environment for the project. Storing the virtual environment in the source directory
+e.g. allows VSCode to find and activate it, which means that e.g. flake8 plugins are found and run.
 
-So instead a manual config change is required:
+At the moment poetry venv location can't be set in `pyproject.toml`, only in `poetry.toml`.
+`poetry.toml` may contain config that should not be source-controlled so this should be considered if updating it.
+
+A manual system-wide config change can also be made if needed:
 ```
 poetry config virtualenvs.in-project true
 ```
+
+### Create virtual environment
 Any existing venvs can be removed:
 ```
 poetry env list
 poetry env remove ...
 ```
-Then install at the expected location:
+Then install a new one into `.venv`:
 ```
 poetry install
 ```
 
+### Set git to use pre-commit hooks
+```
+poetry run pre-commit install
+```
 
-# TODO: Use pre-commit to ensure latest base repo has been rebased in?
+## Updating
+### Poetry
+Update Poetry version:
+```
+poetry self update
+```
+
+### Python packages
+Poetry will only update minor or patch versions by default (e.g. for versions pinned with ^) using:
+```
+poetry update
+```
+
+For major versions you can see which packages are outdated:
+```
+poetry show --latest
+```
+And then manually update them using `poetry add ...@latest` or by editing `pyproject.toml` and using `poetry install`.
+TODO: Look into plugin [`poetry up`](https://github.com/MousaZeidBaker/poetry-plugin-up).
+
+### Pre-commit packages
+```
+poetry run pre-commit autoupdate
+```
+
+TODO: Use pre-commit to ensure latest base repo has been rebased in?

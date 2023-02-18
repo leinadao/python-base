@@ -1,0 +1,6 @@
+# Project-specific Poetry settings, from 'poetry config --local x y'.
+## Note: At present can't seem to put these into pyproject.toml.
+
+[virtualenvs]
+# Create virtual environments in ./.venv for use by e.g. VSCode.
+in-project = true
