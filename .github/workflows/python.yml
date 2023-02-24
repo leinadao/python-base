@@ -22,7 +22,7 @@ jobs:
         cache: 'poetry'
     - name: Install dependencies
       run: poetry install --sync
-    - name: Lint with flake8
-      run: poetry run flake8 .
+    - name: Check pre-commit was used to lint etc.
+      run: poetry run pre-commit run --all-files
 #     - name: Test with pytest
 #       run: poetry run pytest # TODO
