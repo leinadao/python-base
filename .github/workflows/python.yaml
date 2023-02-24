@@ -1,4 +1,4 @@
-name: Python poetry application
+name: Python
 
 on:
   push:
@@ -36,4 +36,4 @@ jobs:
     - name: Check pre-commit was used to lint etc.
       run: poetry run pre-commit run --all-files
 #     - name: Test with pytest
-#       run: poetry run pytest # TODO
+#       run: poetry run pytest
