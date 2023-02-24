@@ -18,7 +18,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install poetry
-      run: pipx install poetry
+      # Ensure virtualenvs.in-project as pre-commit caching relies on this.
+      run: |
+        pipx install poetry
+        poetry config virtualenvs.in-project true
     - uses: actions/setup-python@v4
       with:
         python-version: '^3.11.1'
@@ -29,10 +32,7 @@ jobs:
           setup.cfg
           .pre-commit-config.yaml
     - name: Install dependencies
-      # Ensure virtualenvs.in-project as pre-commit caching relies on this.
-      run: |
-        poetry config virtualenvs.in-project true
-        poetry install --sync
+      run: poetry install --sync
     - name: Check pre-commit was used to lint etc.
       run: poetry run pre-commit run --all-files
 #     - name: Test with pytest
