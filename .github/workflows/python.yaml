@@ -1,4 +1,4 @@
-name: Python
+name: Python Checks
 
 on:
   push:
@@ -16,13 +16,15 @@ jobs:
       # Have pre-commit install inside the venv so it's also cached by setup-python.
       PRE_COMMIT_HOME: ${{ github.workspace }}/.venv/pre-commit
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
     - name: Install poetry
       # Ensure virtualenvs.in-project as pre-commit caching relies on this.
       run: |
         pipx install poetry
         poetry config virtualenvs.in-project true
-    - uses: actions/setup-python@v4
+    - name: Install python (cached)
+      uses: actions/setup-python@v4
       with:
         python-version: '^3.11.1'
         cache: 'poetry'
@@ -31,7 +33,7 @@ jobs:
           poetry.lock
           setup.cfg
           .pre-commit-config.yaml
-    - name: Install dependencies
+    - name: Install dependencies (cached)
       run: poetry install --sync
     - name: Check pre-commit was used to lint etc.
       run: poetry run pre-commit run --all-files
