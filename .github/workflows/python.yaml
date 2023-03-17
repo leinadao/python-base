@@ -36,6 +36,6 @@ jobs:
     - name: Install dependencies (cached)
       run: poetry install --sync
     - name: Check pre-commit was used to lint etc.
-      run: poetry run pre-commit run --all-files
+      run: SKIP=no-commit-to-branch poetry run pre-commit run --all-files
 #     - name: Test with pytest
 #       run: poetry run pytest

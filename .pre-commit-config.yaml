@@ -28,7 +28,6 @@ repos:
     -   id: name-tests-test
         args: ['--django']
     -   id: no-commit-to-branch
-        stages: [commit]
         args: [--branch, main, --branch, master, --branch, production, --branch, staging]
     -   id: pretty-format-json
 -   repo: https://github.com/python/black
