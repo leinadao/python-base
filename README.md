@@ -14,8 +14,11 @@ A base python setup
 Update latest base changes in a repo:
 ```
   git fetch python-base
-  git rebase python-base/main # Resolve any conflicts.
-  git push # possibly need --force
+  git merge python-base/main --no-commit
+  # Resolve any conflicts and stage files.
+  # Check diff for new standards etc to match.
+  git merge --continue
+  git push
 ```
 
 =======
