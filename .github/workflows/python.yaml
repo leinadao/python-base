@@ -37,7 +37,7 @@ jobs:
       run: poetry install --sync
     - name: Check pre-commit was used to lint etc.
       # Ignore no-commit-to-branch as GitHub merges and manually allowed force pushes should pass.
-      # GitHub branch protection should be use to protect main in GitHub instead.
+      # GitHub branch protection should be used to protect main in GitHub instead.
       # The check prevents prevents incorrect commits locally.
       run: SKIP=no-commit-to-branch poetry run pre-commit run --all-files
 #     - name: Test with pytest
